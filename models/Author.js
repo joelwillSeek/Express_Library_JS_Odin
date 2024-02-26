@@ -3,7 +3,9 @@ const Schema=mongoose.Schema;
 const Model=mongoose.Model;
 
 const newSchema=new Schema({
-    first_name:String,
+    first_name:{
+        type:String,
+    },
     family_name:String,
     date_of_birth:Date,
     date_of_death:Date,
@@ -12,4 +14,4 @@ const newSchema=new Schema({
     url:String
 })
 
-module.exports =new Model("Author",newSchema);
+module.exports =mongoose.model("Author",newSchema);

@@ -1,15 +1,27 @@
-const express=require("express");
-const mongoose=require("mongoose");
-const mongodbConnection=require("./controllers/monogoConnection");
+const express = require("express");
+const mongoose = require("mongoose");
+const mongodbConnection = require("./controllers/monogoConnection");
+const Author = require("./models/Author");
+const Book = require("./models/Book");
 
-const app=express();
+const app = express();
 
-const mongodb=
+let createAuthor = () => {
 
-app.set("view engine","ejs");
+  /**
+   * @type {mongoose.Model}
+   */
+  const author = new Author({ first_name: "hi",family_name:"there" });
+  author.save();
+};
 
-app.get("/",(req,res)=>{
-    res.render("index");
-})
+let createBook=()=>{
+    const book=new Book({title:"Atomic Habits"});
+    book.save();
+}
 
-app.listen(3001);
+createAuthor();
+createBook();
+
+app.listen(3005);
+ 

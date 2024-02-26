@@ -11,4 +11,4 @@ const book=new Schema({
     genre:Schema.Types.ObjectId
 })
 
-module.exports=new model("Book",book);
+module.exports=mongoose.model("Book",book);

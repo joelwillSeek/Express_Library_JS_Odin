@@ -9,4 +9,4 @@ const newSchema=new Schema({
     url:String
 })
 
-module.exports=new Model("BookInstance",newSchema);
+module.exports=mongoose.model("BookInstance",newSchema);

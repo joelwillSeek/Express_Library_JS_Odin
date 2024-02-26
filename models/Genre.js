@@ -7,4 +7,4 @@ const newSchema=new Schema({
     url:String
 });
 
-module.exports=new Model("Genre");
+module.exports=mongoose.model("Genre");

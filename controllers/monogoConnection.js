@@ -1,7 +1,9 @@
-const monagodb=mongoose.connect("mongodb://localhost:27017/Library");
+const mongoose= require("mongoose");
 
-monagodb.catch((err)=>{
+const mongodb=mongoose.connect("mongodb://localhost:27017/Library");
+
+mongodb.catch((err)=>{
     console.log(err);
 })
 
-module.exports={monagodb}
+module.exports=mongodb;
