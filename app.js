@@ -3,18 +3,22 @@ const mongoose = require("mongoose");
 const mongodbConnection = require("./controllers/monogoConnection");
 const Author = require("./models/Author");
 const Book = require("./models/Book");
-const ObjectsData = require("./controllers/Routes/ObjectsData");
+const userRoutes = require("./Routes/users");
+const indexRoutes = require("./Routes/index");
+const catalogRoutes = require("./Routes/catalog");
 
-const app = express(); 
+const app = express();
 
-app.set("view engine","ejs");
-app.set("views","./views");
+const port = 3010;
 
-app.use("/catalog",ObjectsData);
+app.set("view engine", "pug");
+app.set("views", "./views");
+app.use(express.static("Public"));
 
-app.get("/",(req,res)=>{
-  res.redirect("/catalog"); 
+app.use("/catalog", catalogRoutes);
+app.use("/users", userRoutes);
+app.use("/", indexRoutes);
+
+app.listen(port, () => {
+  console.log("Server started on port " + port);
 });
-
-app.listen(3005);
- 
