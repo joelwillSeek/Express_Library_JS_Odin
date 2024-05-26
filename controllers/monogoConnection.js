@@ -1,9 +1,16 @@
-const mongoose= require("mongoose");
+const mongoose = require("mongoose");
 
-const mongodb=mongoose.connect("mongodb://localhost:27017/Library");
+const options = {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  serverSelectionTimeoutMS: 30000, // Increase to 30 seconds
+  socketTimeoutMS: 45000,
+};
 
-mongodb.catch((err)=>{
-    console.log(err);
-})
+const mongodb = mongoose.connect("mongodb://localhost:27017/Library", options);
 
-module.exports=mongodb;
+mongodb.catch((err) => {
+  console.log(err);
+});
+
+module.exports = mongodb;

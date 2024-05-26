@@ -9,11 +9,13 @@ const catalogRoutes = require("./Routes/catalog");
 
 const app = express();
 
-const port = 3010;
+const port = 3011;
 
 app.set("view engine", "pug");
 app.set("views", "./views");
 app.use(express.static("Public"));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 app.use("/catalog", catalogRoutes);
 app.use("/users", userRoutes);

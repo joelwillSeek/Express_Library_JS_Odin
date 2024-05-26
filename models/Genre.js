@@ -4,7 +4,10 @@ const Model = mongoose.model;
 
 const newSchema = new Schema({
   name: String,
-  url: String,
+});
+
+newSchema.virtual("url").get(function () {
+  return "/catalog/genre/" + this._id;
 });
 
 module.exports = Model("Genre", newSchema);
