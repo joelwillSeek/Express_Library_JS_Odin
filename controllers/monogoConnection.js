@@ -7,7 +7,13 @@ const options = {
   socketTimeoutMS: 45000,
 };
 
-const mongodb = mongoose.connect("mongodb://localhost:27017/Library", options);
+const forDevDatabaseUrl = "mongodb://localhost:27017/Library";
+const forProductionDatabaseUrl = process.env.MONGODB_URI;
+
+const mongodb = mongoose.connect(
+  forProductionDatabaseUrl || forDevDatabaseUrl,
+  options
+);
 
 mongodb.catch((err) => {
   console.log(err);

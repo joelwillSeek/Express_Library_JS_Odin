@@ -6,13 +6,28 @@ const Book = require("./models/Book");
 const userRoutes = require("./Routes/users");
 const indexRoutes = require("./Routes/index");
 const catalogRoutes = require("./Routes/catalog");
+const compressed = require("compression");
+const helmet = require("helmet");
+const requestLimiter = require("express-rate-limit").rateLimit({
+  windowMs: 1 * 60 * 1000, //1minute,
+  max: 20,
+});
 
 const app = express();
 
-const port = 3011;
+const port = process.env.PROT || 3012;
 
 app.set("view engine", "pug");
 app.set("views", "./views");
+app.use(compressed());
+app.use(
+  helmet.contentSecurityPolicy({
+    directives: {
+      "script-src": ["'self'", "code.jquery.com", "cdn.jsdelivr.net"],
+    },
+  })
+);
+app.use(requestLimiter);
 app.use(express.static("Public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -22,5 +37,6 @@ app.use("/users", userRoutes);
 app.use("/", indexRoutes);
 
 app.listen(port, () => {
+  //replace with debug
   console.log("Server started on port " + port);
 });
