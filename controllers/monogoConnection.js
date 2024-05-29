@@ -8,7 +8,8 @@ const options = {
 };
 
 const forDevDatabaseUrl = "mongodb://localhost:27017/Library";
-const forProductionDatabaseUrl = process.env.MONGODB_URI;
+const forProductionDatabaseUrl =
+  "mongodb+srv://eyoelsel:eyhacker@kinda.plmti40.mongodb.net/?retryWrites=true&w=majority&appName=kinda";
 
 const mongodb = mongoose.connect(
   forProductionDatabaseUrl || forDevDatabaseUrl,
