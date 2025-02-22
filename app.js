@@ -10,17 +10,17 @@ const compressed = require("compression");
 const helmet = require("helmet");
 const requestLimiter = require("express-rate-limit").rateLimit({
   windowMs: 1 * 60 * 1000, //1minute,
-  max: 20,
-});
+  max: 20, 
+}); 
+ 
+const app =  express();
 
-const app = express();
-
-const port = process.env.PROT || 3012;
+const port = process.env.PROT || 3012; 
 
 app.set("view engine", "pug");
 app.set("views", "./views");
 app.use(compressed());
-app.use(
+app.use( 
   helmet.contentSecurityPolicy({
     directives: {
       "script-src": ["'self'", "code.jquery.com", "cdn.jsdelivr.net"],
@@ -28,6 +28,15 @@ app.use(
   })
 );
 app.use(requestLimiter);
+app.use( helmet.contentSecurityPolicy({
+  directives: {
+    "default-src": ["'self'"],
+    "script-src": ["'self'", "code.jquery.com", "cdn.jsdelivr.net"],
+    "style-src": ["'self'", "cdn.jsdelivr.net"],
+    "img-src": ["'self'", "data:"],
+    "font-src": ["'self'", "cdn.jsdelivr.net"],
+  },
+}))
 app.use(express.static("Public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());

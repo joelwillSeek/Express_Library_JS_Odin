@@ -1,6 +1,131 @@
+/* Layout */
 .sidebar-nav {
-    margin-top: 20px;
-    padding: 0;
-    list-style: none;
-  }
-  
+  margin-top: 20px;
+  padding: 0;
+  list-style: none;
+}
+
+body {
+  /* background-color: red; */
+  --primary-color: #4a94cd;
+  --wight: #fff;
+  --black: #000;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(/bg.jpg);
+}
+
+.sidebar-custom {
+  background: #1b1b1b;
+  height: 100vh;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
+  margin-top: 0;
+}
+
+.sidebar-custom a {
+  color: white;
+  text-decoration: none;
+  color: var(--wight);
+  font-size: large;
+  font-weight: bold;
+  transition: color ease-in-out 300ms;
+}
+
+.sidebar-custom li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  margin: 0.4rem 0.25;
+  padding: 0.5rem 0.25rem;
+
+  transition: background-color ease-in-out 309ms;
+  background-color: transparent;
+
+}
+
+.sidebar-custom li:hover {
+  background-color: var(--primary-color);
+
+}
+
+.sidebar-custom li:hover a {
+  color: #fff;
+}
+
+.containerForLanding {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  color: #fff;
+}
+
+.sider {
+  padding: 0;
+  height: 100%;
+  background-color: var(--black);
+}
+
+/* index */
+.heading {
+  font-weight: bold;
+}
+
+.highlight {
+  color: #61b5f5;
+  font-weight: bold;
+}
+
+/* author */
+
+.heading-author {
+  font-weight: bold;
+}
+
+.input {
+  padding: 1rem;
+  background-color: transparent;
+  border: 1px solid #000;
+}
+
+/* .input::placeholder{
+    color:white !important;
+  } */
+
+.label {
+  color: #000;
+  font-weight: bold;
+}
+
+.submit_btn {
+  padding: 0.3rem 1rem;
+  font-weight: bold;
+  text-align: right;
+  border-radius: 50px;
+  background-color: rgb(16, 125, 145);
+  color: white;
+  cursor: pointer;
+  transition: background-color ease-in-out 300ms;
+}
+
+.submit_btn:hover {
+  background-color: #61b5f5;
+}
+
+input {
+  margin: 1rem 0;
+}
+
+input[type="date"] {
+  color: black !important;
+}
+
+.author_form {
+  background-color: white;
+  border-radius: 20px;
+  padding: 1rem;
+}

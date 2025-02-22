@@ -9,10 +9,11 @@ const options = {
 
 const forDevDatabaseUrl = "mongodb://localhost:27017/Library";
 const forProductionDatabaseUrl =
-  "mongodb+srv://eyoelsel:eyhacker@kinda.plmti40.mongodb.net/?retryWrites=true&w=majority&appName=kinda";
+"mongodb+srv://eyoelsel:eyhacker@kinda.plmti40.mongodb.net/?retryWrites=true&w=majority&appName=kinda";
 
-const mongodb = mongoose.connect(
-  forProductionDatabaseUrl || forDevDatabaseUrl,
+const mongodb = mongoose.connect( 
+  forDevDatabaseUrl,
+  ///forProductionDatabaseUrl || forDevDatabaseUrl,
   options
 );
 
