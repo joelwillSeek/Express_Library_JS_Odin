@@ -1,0 +1,7 @@
+.container{
+    display: grid;
+    grid-template-columns: 10% 90%;
+    grid-template-rows: 1fr;
+    justify-content: center;
+    align-items: center;
+}
